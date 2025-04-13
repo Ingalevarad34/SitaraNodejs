@@ -12,6 +12,8 @@ app.use(express.urlencoded({ extended: true, limit: "100mb" }));
 
 // Import Routes
 const weeklyTopSongsRoutes = require("./routes/weeklyTopSongsRoutes");
+const EnglishSongsRoutes = require("./routes/englishSongsRoutes");
+const MarathiSongsRoutes = require("./routes/marathiSongsRoutes");
 const newReleaseRoutes = require("./routes/newReleaseRoutes");
 const trendingSongsRoutes = require("./routes/trendingSongsRoutes");
 const artistRoutes = require("./routes/artistRoutes");
@@ -21,8 +23,11 @@ const moodPlaylistRoutes = require("./routes/moodPlaylistRoutes");
 const allSongsRoutes = require("./routes/allSongsRoutes");
 const musicGenresRoutes = require("./routes/musicGenreRoutes");
 const playListRoutes = require("./routes/playListRoutes");
+const wishListRoutes = require("./routes/wishListRoutes");
 
 app.use("/api/weekly-songs", weeklyTopSongsRoutes);
+app.use("/api/english-songs", EnglishSongsRoutes);
+app.use("/api/english-songs", MarathiSongsRoutes);
 app.use("/api/newRelease-songs", newReleaseRoutes);
 app.use("/api/trending-songs", trendingSongsRoutes);
 app.use("/api/artist-songs", artistRoutes);
@@ -32,6 +37,7 @@ app.use("/api/moodPlaylist-songs", moodPlaylistRoutes);
 app.use("/api/all-songs", allSongsRoutes);
 app.use("/api/musicGenres-songs", musicGenresRoutes);
 app.use("/api/playList-songs",playListRoutes);
+app.use("/api/playList-songs",wishListRoutes);
 
 // Connect to MongoDB
 mongoose
