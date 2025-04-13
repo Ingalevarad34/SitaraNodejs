@@ -24,6 +24,7 @@ const allSongsRoutes = require("./routes/allSongsRoutes");
 const musicGenresRoutes = require("./routes/musicGenreRoutes");
 const playListRoutes = require("./routes/playListRoutes");
 const wishListRoutes = require("./routes/wishListRoutes");
+const userqueryRoutes = require("./routes/userqueryoutes");
 
 app.use("/api/weekly-songs", weeklyTopSongsRoutes);
 app.use("/api/english-songs", EnglishSongsRoutes);
@@ -37,7 +38,8 @@ app.use("/api/moodPlaylist-songs", moodPlaylistRoutes);
 app.use("/api/all-songs", allSongsRoutes);
 app.use("/api/musicGenres-songs", musicGenresRoutes);
 app.use("/api/playList-songs",playListRoutes);
-app.use("/api/playList-songs",wishListRoutes);
+app.use("/api/wishList-songs",wishListRoutes);
+app.use("/api/userquery",userqueryRoutes);
 
 // Connect to MongoDB
 mongoose
