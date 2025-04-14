@@ -4,7 +4,7 @@ const {
   getMarathiSongs,
   deleteAllMarathiSongs,
   deleteMarathiSongsById
-} = require("../controllers/weeklyTopSongsController");
+} = require("../controllers/marathiSongsController");
 
 const router = express.Router();
 

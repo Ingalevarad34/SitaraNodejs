@@ -1,4 +1,4 @@
-const MarathiSongs = require("../models/MarathiSongs");
+const MarathiSongs = require("../models/marathiSongsModel");
 
 // ✅ Add Multiple Marathi Songs
 exports.addMarathiSongs = async (req, res) => {
@@ -20,8 +20,8 @@ exports.addMarathiSongs = async (req, res) => {
 // ✅ Get All Marathi Songs
 exports.getMarathiSongs = async (req, res) => {
   try {
-    const MarathiSongs = await MarathiSongs.find();
-    res.json(MarathiSongs);
+    const marathiSongs = await MarathiSongs.find();
+    res.json(marathiSongs);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

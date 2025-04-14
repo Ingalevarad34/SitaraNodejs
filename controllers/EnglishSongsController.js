@@ -1,4 +1,4 @@
-const EnglishSongs = require("../models/EnglishSongs");
+const EnglishSongs = require("../models/englishSongsModel");
 
 // ✅ Add Multiple English Songs
 exports.addEnglishSongs = async (req, res) => {
@@ -20,8 +20,8 @@ exports.addEnglishSongs = async (req, res) => {
 // ✅ Get All English Songs
 exports.getEnglishSongs = async (req, res) => {
   try {
-    const EnglishSongs = await EnglishSongs.find();
-    res.json(EnglishSongs);
+    const englishSongs = await EnglishSongs.find();
+    res.json(englishSongs);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

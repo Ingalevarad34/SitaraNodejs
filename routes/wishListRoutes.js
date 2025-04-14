@@ -4,7 +4,7 @@ const {
   getWishListSongs,
   deleteAllWishListSongs,
   deleteWishListSongById
-} = require("../controllers/playListController");
+} = require("../controllers/wishListController");
 
 const router = express.Router();
 
