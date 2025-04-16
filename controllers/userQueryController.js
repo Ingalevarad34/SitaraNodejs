@@ -1,31 +1,37 @@
 const userquery = require("../models/userqueryModel");
 
-// ✅ Add userqueries
+// ✅ Add userquery
 exports.adduserquery = async (req, res) => {
   try {
-    const songsList = req.body;
+    const userQuery = req.body;
 
-    if (!Array.isArray(songsList) || songsList.length === 0) {
-      return res.status(400).json({ error: "Invalid input, expected a non-empty array" });
+    if (!userQuery.userName || !userQuery.userSuggestion) {
+      return res.status(400).json({ error: "Missing userName or userSuggestion" });
     }
 
-    const savedSongs = await PlayListSongs.insertMany(songsList);
-    res.status(201).json({ message: "userquery added successfully" });
+    const newQuery = new userquery({
+      userName: userQuery.userName,
+      userSuggestion: userQuery.userSuggestion,
+    });
+
+    const savedQuery = await newQuery.save();
+    res.status(201).json({ message: "userquery added successfully", savedQuery });
 
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
-// ✅ Get All userquery 
+// ✅ Get All userqueries
 exports.getuserquery = async (req, res) => {
   try {
-    const userquery = await userquery.find();
-    res.json(userquery);
+    const UserQuery = await userquery.find();
+    res.json(UserQuery);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
+
 
 // ✅ Delete All userquery
 exports.deleteAlluserquery = async (req, res) => {
